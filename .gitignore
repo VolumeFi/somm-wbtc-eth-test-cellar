@@ -1,0 +1,10 @@
+__pycache__
+.pytest_cache
+.history
+.hypothesis/
+bin/
+build/
+reports/
+
+node_modules
+
