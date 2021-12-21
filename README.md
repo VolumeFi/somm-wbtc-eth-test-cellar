@@ -1,1 +1,1 @@
-# somm-wbtc-eth-test-cellar
+# Sommelier Production Test Cellar for WBTC/ETH 0.3% Tier
