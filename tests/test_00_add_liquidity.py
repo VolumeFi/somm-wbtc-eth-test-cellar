@@ -9,11 +9,11 @@ def test_add_liquidity_ETH(WBTC, WETH, accounts, SwapRouter, CellarPoolShareCont
     WBTC.approve(CellarPoolShareContract, 3 * 10 ** 7, {"from": accounts[1]})
     ETH_amount = 10 ** 18
     WBTC_amount = 10 ** 7
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[0], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[1], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
@@ -28,11 +28,11 @@ def test_add_liquidity(WBTC, WETH, accounts, CellarPoolShareContract):
     WETH.approve(CellarPoolShareContract, 3 * 10 ** 18, {"from": accounts[1]})
     ETH_amount = 10 ** 18
     WBTC_amount = 10 ** 7
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[0], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0]})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0]})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0]})
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[1], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1]})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1]})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1]})

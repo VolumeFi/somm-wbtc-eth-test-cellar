@@ -8,7 +8,7 @@ def test_empty(WBTC, WETH, accounts, SwapRouter, CellarPoolShareContract, Uniswa
     WBTC.approve(CellarPoolShareContract, 5 * 10 ** 6, {"from": accounts[2]})
     ETH_amount = 10 ** 18
     WBTC_amount = 5 * 10 ** 6
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[2], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[2], "value": 10 ** 18})
     CellarPoolShareContract.setValidator(accounts[2], True, {"from": accounts[1]})
     for i in range(3):
@@ -22,7 +22,7 @@ def test_empty(WBTC, WETH, accounts, SwapRouter, CellarPoolShareContract, Uniswa
     curPriceX96 = UniswapV3Pool.slot0()[0]
     CellarPoolShareContract.reinvest(curPriceX96, {"from": accounts[2]})
     bal = CellarPoolShareContract.balanceOf(accounts[2])
-    cellarRemoveParams = [bal, 0, 0, accounts[2], 2 ** 256 - 1]
+    cellarRemoveParams = [bal, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.removeLiquidityFromUniV3(cellarRemoveParams, {"from": accounts[2]})
     assert CellarPoolShareContract.balanceOf(accounts[2]) == 0
 
@@ -33,11 +33,11 @@ def test_add_liquidity_ETH(WBTC, WETH, accounts, SwapRouter, CellarPoolShareCont
     WBTC.approve(CellarPoolShareContract, 3 * 10 ** 7, {"from": accounts[1]})
     ETH_amount = 10 ** 18
     WBTC_amount = 10 ** 7
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[0], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[0], "value": 1 * 10 ** 18})
-    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, accounts[1], 2 ** 256 - 1]
+    cellarAddParams = [WBTC_amount, ETH_amount, 0, 0, 2 ** 256 - 1]
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
     CellarPoolShareContract.addLiquidityForUniV3(cellarAddParams, {"from": accounts[1], "value": 1 * 10 ** 18})
@@ -45,7 +45,7 @@ def test_add_liquidity_ETH(WBTC, WETH, accounts, SwapRouter, CellarPoolShareCont
 
 def test_reinvest(WBTC, WETH, accounts, SwapRouter, CellarPoolShareContract, UniswapV3Factory):
     bal = CellarPoolShareContract.balanceOf(accounts[1])
-    cellarRemoveParams = [bal // 3, 0, 0, accounts[1], 2 ** 256 - 1]
+    cellarRemoveParams = [bal // 3, 0, 0, 2 ** 256 - 1]
     USDT_balance = WBTC.balanceOf(accounts[1])
     WETH_balance = WETH.balanceOf(accounts[1])
     CellarPoolShareContract.removeLiquidityFromUniV3(cellarRemoveParams, {"from": accounts[1]})
